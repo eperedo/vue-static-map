@@ -2,6 +2,8 @@
 
 > a simple component to generate static google map
 
+![static google map](https://user-images.githubusercontent.com/461124/28100714-6c896d1e-6689-11e7-8a38-327dfe4b6ff5.png)
+
 ## Requirements
 
 1. Vue 2.X.X

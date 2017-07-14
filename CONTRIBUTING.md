@@ -35,3 +35,6 @@ Thank you for your interesting in make this library better.
 	
 		dist/StaticMap.js
 
+### Contact
+
+If you want to contact me feel free to send me a message in my [mail](mailto:jrperedo@gmail.com) or my [twitter account](https://twitter.comeperedo)

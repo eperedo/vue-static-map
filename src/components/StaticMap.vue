@@ -20,7 +20,7 @@ function generateMapType() {
 }
 
 function generateMapUrl() {
-	const mapUrl = `${BASE_URL_MAP}center=${this.center}&zoom=${this.zoom}&size=${this.sizeMap}&maptype=${this.mapTypeMap}&format=${this.formatMap}&key=${this.googleApiKey}&scale=${this.scaleMap}&${this.markersMap}&${this.pathsMap}`;
+	const mapUrl = `${BASE_URL_MAP}center=${this.center}&zoom=${this.zoom}&size=${this.sizeMap}&maptype=${this.mapTypeMap}&format=${this.formatMap}&key=${this.googleApiKey}&scale=${this.scaleMap}&${this.language}&${this.markersMap}&${this.pathsMap}`;
 	this.$emit('getUrl', mapUrl);
 	return mapUrl;
 }
@@ -48,7 +48,7 @@ function generatePaths() {
 			if (location.startLat && location.endLng) {
 				return `|${location.startLat},${location.endLng}`;
 			}
-			throw Error('The location object must have startLat and endLng properties');
+			throw Error('The path object must have startLat and endLng properties');
 		});
 		const joinLatLng = latLng.join('');
 		const pathUrl = `&path=${color}|${fillcolor}|${geodesic}|${weight}${joinLatLng}`;
@@ -98,6 +98,9 @@ export default {
 		googleApiKey: {
 			type: String,
 			required: true,
+		},
+		language: {
+			type: String,
 		},
 		markers: {
 			type: Array,

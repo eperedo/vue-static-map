@@ -1,6 +1,6 @@
 {
 	"name": "vue-static-map",
-	"version": "1.5.2",
+	"version": "1.5.3",
 	"description": "a simple component to generate static google map",
 	"keywords": [
 		"vue",

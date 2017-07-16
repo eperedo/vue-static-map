@@ -21,6 +21,11 @@
 
 		npm install vue-static-map
 
+	Or include in your html using the script tag
+	```html
+	<script src="https://unpkg.com/vue-static-map/dist/StaticMap.js"></script>
+	```
+
 2. Add component in your app
 
 	```javascript
@@ -118,7 +123,7 @@
 2. Add the event on your template
 
 	```html
-	<static-map :google-api-key="apiKey" v-on:getUrl="getUrl" :zoom="zoom" :center="center"></static-map>
+	<static-map :google-api-key="apiKey" v-on:get-url="getUrl" :zoom="zoom" :center="center"></static-map>
 	```
 
 ## Build Setup

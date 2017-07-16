@@ -27,12 +27,28 @@ function generateMapUrl() {
 
 function generateMarkers() {
 	const markers = this.markers.map((marker) => {
-		const color = `color:${marker.color}`;
-		const size = `size:${marker.size}`;
-		const label = `label:${marker.label}`;
-		const icon = `icon:${marker.icon}`;
+		const color = `color:${marker.color}|`;
+		const size = `size:${marker.size}|`;
+		const label = `label:${marker.label}|`;
+		const icon = `icon:${marker.icon}|`;
 		const latLng = `${marker.lat},${marker.lng}`;
-		const markerUrl = `&markers=${icon}|${size}|${color}|${label}|${latLng}`;
+		let markerUrl = '&markers=';
+		if (marker.color) {
+			markerUrl += color;
+		}
+		if (marker.size) {
+			markerUrl += size;
+		}
+		if (marker.label) {
+			markerUrl += label;
+		}
+		if (marker.icon) {
+			markerUrl += icon;
+		}
+		if (marker.lat && marker.lng) {
+			markerUrl += latLng;
+		}
+		// const markerUrl = `&markers=${icon}|${size}|${color}|${label}|${latLng}`;
 		return markerUrl;
 	});
 	return markers.join('');

@@ -19,12 +19,12 @@ export default {
 	data: () => {
 		const dataValues = {
 			apiKey: '',
-			center: 'Empire State Building',
+			center: 'Brooklyn+Bridge,New+York,NY',
 			format: 'gif',
-			language: 'EN',
+			language: 'ja',
 			markers: [
 				{
-					label: 'B', color: 'blue', lat: 40.702147, lng: -74.015794, size: 'normal',
+					label: 'W', color: 'blue', lat: 40.702147, lng: -74.015794, size: 'normal',
 				},
 				{
 					label: 'Y', color: 'yellow', lat: 40.711614, lng: -74.012318, size: 'tiny',

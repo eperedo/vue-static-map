@@ -4,9 +4,11 @@
 
 ![static google map](https://user-images.githubusercontent.com/461124/28100714-6c896d1e-6689-11e7-8a38-327dfe4b6ff5.png)
 
+[Google Documentation](https://developers.google.com/maps/documentation/static-maps/intro)
+
 ## Demo
 
-- [JSBin example](http://jsbin.com/gawedufesa/edit?html,js,output)
+- [JSBin example](http://jsbin.com/gizixekilu/edit?html,js,output)
 
 ## Requirements
 

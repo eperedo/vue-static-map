@@ -6,7 +6,7 @@
 
 ## Demo
 
-- (http://jsbin.com/gawedufesa/edit?html,js,output)[Demo]
+- [JSBin example](http://jsbin.com/gawedufesa/edit?html,js,output)
 
 ## Requirements
 

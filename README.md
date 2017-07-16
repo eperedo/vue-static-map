@@ -39,6 +39,7 @@
 			zoom: 13, // required
 			center: 'Brooklyn+Bridge,New+York,NY',
 			format: 'gif',
+			language: 'ja',
 			markers: [
 				{
 					label: 'B', color: 'blue', lat: 40.702147, lng: -74.015794, size: 'normal',
@@ -76,7 +77,7 @@
 4. In your template just call the static map component
 
 	```html
-	<static-map :google-api-key="apiKey" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type"></static-map>
+	<static-map :google-api-key="apiKey" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type" :paths="paths" :language="language"></static-map>
 	```
 
 ## Events

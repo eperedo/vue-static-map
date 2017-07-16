@@ -101,6 +101,7 @@ export default {
 		},
 		language: {
 			type: String,
+			default: 'en',
 		},
 		markers: {
 			type: Array,

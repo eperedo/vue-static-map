@@ -1,8 +1,10 @@
 <template>
 	<div id="app">
 		<h1>Vue Static Map</h1>
-		<static-map :google-api-key="apiKey" v-on:getUrl="getUrl" :paths="paths" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type"></static-map>
-		<pre>{{url}}</pre>
+		<static-map :google-api-key="apiKey" :language="language" v-on:get-url="getUrl" :paths="paths" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type"></static-map>
+		<div>
+			<pre>{{url}}</pre>
+		</div>
 	</div>
 </template>
 
@@ -18,8 +20,19 @@ export default {
 		const dataValues = {
 			apiKey: '',
 			center: 'Empire State Building',
-			format: 'png32',
-			markers: [],
+			format: 'gif',
+			language: 'EN',
+			markers: [
+				{
+					label: 'B', color: 'blue', lat: 40.702147, lng: -74.015794, size: 'normal',
+				},
+				{
+					label: 'Y', color: 'yellow', lat: 40.711614, lng: -74.012318, size: 'tiny',
+				},
+				{
+					label: 'G', color: 'green', lat: 40.718217, lng: -74.015794, size: 'small', icon: 'http://www.airsoftmap.net/images/pin_map.png',
+				},
+			],
 			paths: [
 				{
 					color: 'blue',
@@ -34,7 +47,7 @@ export default {
 					],
 				},
 			],
-			scale: '2',
+			scale: '1',
 			size: [800, 400],
 			type: 'roadmap',
 			url: '',

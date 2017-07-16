@@ -20,8 +20,8 @@ function generateMapType() {
 }
 
 function generateMapUrl() {
-	const mapUrl = `${BASE_URL_MAP}center=${this.center}&zoom=${this.zoom}&size=${this.sizeMap}&maptype=${this.mapTypeMap}&format=${this.formatMap}&key=${this.googleApiKey}&scale=${this.scaleMap}&${this.language}&${this.markersMap}&${this.pathsMap}`;
-	this.$emit('getUrl', mapUrl);
+	const mapUrl = `${BASE_URL_MAP}center=${this.center}&zoom=${this.zoom}&size=${this.sizeMap}&maptype=${this.mapTypeMap}&format=${this.formatMap}&key=${this.googleApiKey}&scale=${this.scaleMap}&language=${this.language}${this.markersMap}${this.pathsMap}`;
+	this.$emit('get-url', mapUrl);
 	return mapUrl;
 }
 

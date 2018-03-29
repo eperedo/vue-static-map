@@ -1,5 +1,5 @@
 <template>
-	<img v-bind:src="mapUrl" alt="Static Google Map" />
+	<img v-bind:src="mapUrl" v-bind:alt="altText" v-bind:title="titleText" />
 </template>
 
 <script>
@@ -100,6 +100,16 @@ export default {
 		sizeMap: generateSizeMap,
 	},
 	props: {
+		altText: {
+			type: String,
+			required: false,
+			default: 'Static Google Map',
+		},
+		titleText: {
+			type: String,
+			required: false,
+			default: 'Static Google Map',
+		},
 		center: {
 			type: String,
 			required: true,

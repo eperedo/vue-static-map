@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<h1>Vue Static Map</h1>
-		<static-map :google-api-key="apiKey" :language="language" v-on:get-url="getUrl" :paths="paths" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type"></static-map>
+		<static-map :google-api-key="apiKey" :language="language" v-on:get-url="getUrl" :paths="paths" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type" :altText="altText" :titleText="titleText"></static-map>
 		<div>
 			<pre>{{url}}</pre>
 		</div>
@@ -20,6 +20,8 @@ export default {
 		const dataValues = {
 			apiKey: '',
 			center: 'Brooklyn+Bridge,New+York,NY',
+			altText: 'A Google Static Map',
+			titleText: 'A Google Static Map',
 			format: 'gif',
 			language: 'ja',
 			markers: [

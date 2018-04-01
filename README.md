@@ -8,127 +8,139 @@
 
 ## Demo
 
-- [JSBin example](http://jsbin.com/gizixekilu/edit?html,js,output)
+* [JSBin example](http://jsbin.com/gizixekilu/edit?html,js,output)
 
 ## Requirements
 
-1. Vue 2.X.X
-2. vue-cli https://github.com/vuejs/vue-cli (for development only)
+1.  Vue 2.X.X
 
 ## Usage
 
-1. Install from npm
+1.  Install from npm
 
-		npm install vue-static-map
+        npm install vue-static-map
 
-	Or include in your html using the script tag
-	```html
-	<script src="https://unpkg.com/vue-static-map/dist/StaticMap.js"></script>
-	```
+    Or include in your html using the script tag
 
-2. Add component in your app
+    ```html
+    <script src="https://unpkg.com/vue-static-map/dist/static-map.umd.min.js"></script>
+    ```
 
-	```javascript
-	import StaticMap from 'vue-static-map';
-	// or require('vue-static-map')
-	// or window.StaticMap if you are including in a script tag
+2.  Add component in your app
 
-	export default {
-		components: {
-			StaticMap,
-		},
-	}
+    ```javascript
+    import StaticMap from 'vue-static-map';
+    // or require('vue-static-map')
+    // or window.StaticMap if you are including in a script tag
 
-	```
+    export default {
+    	components: {
+    		StaticMap,
+    	},
+    };
+    ```
 
-3. Create some parameters in your data object
+3.  Create some parameters in your data object
 
-	```javascript
-	export default {
-		data: {
-			apiKey: 'YOUR_GOOGLE_API_KEY', // required
-			zoom: 13, // required
-			center: 'Brooklyn+Bridge,New+York,NY',
-			format: 'gif',
-			language: 'ja',
-			markers: [
-				{
-					label: 'B', color: 'blue', lat: 40.702147, lng: -74.015794, size: 'normal',
-				},
-				{
-					label: 'Y', color: 'yellow', lat: 40.711614, lng: -74.012318, size: 'tiny',
-				},
-				{
-					label: 'G', color: 'green', lat: 40.718217, lng: -74.015794, size: 'small', icon: 'http://www.airsoftmap.net/images/pin_map.png',
-				},
-			],
-			paths: [
-				{
-					color: 'blue',
-					weight: 8,
-					geodesic: false,
-					fillcolor: '0xFFFF0033',
-					locations: [
-						{ startLat: 40.737102, endLng: -73.990318 },
-						{ startLat: 40.749825, endLng: -73.987963 },
-						{ startLat: 40.752946, endLng: -73.987384 },
-						{ startLat: 40.762946, endLng: -73.997399 },
-					],
-				},
-			],
-			type: 'roadmap',
-			size: [800, 400],
-		},
-		components: {
-			StaticMap,
-		},
-	}
-	```
+    ```javascript
+    export default {
+    	data: {
+    		apiKey: 'YOUR_GOOGLE_API_KEY', // required
+    		zoom: 13, // required
+    		center: 'Brooklyn+Bridge,New+York,NY',
+    		format: 'gif',
+    		language: 'ja',
+    		markers: [
+    			{
+    				label: 'B',
+    				color: 'blue',
+    				lat: 40.702147,
+    				lng: -74.015794,
+    				size: 'normal',
+    			},
+    			{
+    				label: 'Y',
+    				color: 'yellow',
+    				lat: 40.711614,
+    				lng: -74.012318,
+    				size: 'tiny',
+    			},
+    			{
+    				label: 'G',
+    				color: 'green',
+    				lat: 40.718217,
+    				lng: -74.015794,
+    				size: 'small',
+    				icon: 'http://www.airsoftmap.net/images/pin_map.png',
+    			},
+    		],
+    		paths: [
+    			{
+    				color: 'blue',
+    				weight: 8,
+    				geodesic: false,
+    				fillcolor: '0xFFFF0033',
+    				locations: [
+    					{ startLat: 40.737102, endLng: -73.990318 },
+    					{ startLat: 40.749825, endLng: -73.987963 },
+    					{ startLat: 40.752946, endLng: -73.987384 },
+    					{ startLat: 40.762946, endLng: -73.997399 },
+    				],
+    			},
+    		],
+    		type: 'roadmap',
+    		size: [800, 400],
+    	},
+    	components: {
+    		StaticMap,
+    	},
+    };
+    ```
 
-4. In your template just call the static map component
+4.  In your template just call the static map component
 
-	```html
-	<static-map :google-api-key="apiKey" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type" :paths="paths" :language="language"></static-map>
-	```
+    ```html
+    <static-map :google-api-key="apiKey" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type" :paths="paths" :language="language"></static-map>
+    ```
 
 ## Events
 
-1. What about if you want the URL of the map, you can easily do that using the **getUrl** event
+1.  What about if you want the URL of the map, you can easily do that using the **getUrl** event
 
-	```javascript
-		function getUrl(url) {
-			this.url = url;
-		}
+    ```javascript
+    function getUrl(url) {
+    	this.url = url;
+    }
 
-		export default {
-			data: () => {
-				const dataValues = {
-					apiKey: 'YOUR_API_KEY',
-					center: 'Empire State Building',
-					url: '',
-					zoom: 13,
-				};
-				return dataValues;
-			},
-			name: 'app',
-			components: {
-				StaticMap,
-			},
-			methods: {
-				getUrl,
-			},
-		};
-	```
+    export default {
+    	data: () => {
+    		const dataValues = {
+    			apiKey: 'YOUR_API_KEY',
+    			center: 'Empire State Building',
+    			url: '',
+    			zoom: 13,
+    		};
+    		return dataValues;
+    	},
+    	name: 'app',
+    	components: {
+    		StaticMap,
+    	},
+    	methods: {
+    		getUrl,
+    	},
+    };
+    ```
 
-2. Add the event on your template
+2.  Add the event on your template
 
-	```html
-	<static-map :google-api-key="apiKey" v-on:get-url="getUrl" :zoom="zoom" :center="center"></static-map>
-	```
+    ```html
+    <static-map :google-api-key="apiKey" v-on:get-url="getUrl" :zoom="zoom" :center="center"></static-map>
+    ```
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -136,5 +148,5 @@ npm install
 npm run dev
 
 # build for production with minification
-vue build src/components/StaticMap.vue --prod --lib
+npm run component
 ```

@@ -1,9 +1,8 @@
 <template>
-	<img v-bind:src="mapUrl" alt="Static Google Map" />
+	<img v-bind:src="mapUrl" />
 </template>
 
 <script>
-
 const BASE_URL_MAP = 'https://maps.googleapis.com/maps/api/staticmap?';
 
 function generateFormatMap() {
@@ -16,17 +15,28 @@ function generateMapType() {
 	if (types.indexOf(currenType) > -1) {
 		return currenType;
 	}
-	throw Error(`Type must be one of the following values ${types.join(', ').toUpperCase()}`);
+	throw Error(
+		`Type must be one of the following values ${types
+			.join(', ')
+			.toUpperCase()}`,
+	);
 }
 
 function generateMapUrl() {
-	const mapUrl = `${BASE_URL_MAP}center=${this.center}&zoom=${this.zoom}&size=${this.sizeMap}&maptype=${this.mapTypeMap}&format=${this.formatMap}&key=${this.googleApiKey}&scale=${this.scaleMap}&language=${this.language}${this.markersMap}${this.pathsMap}`;
+	const mapUrl = `${BASE_URL_MAP}center=${this.center}&zoom=${this.zoom}&size=${
+		this.sizeMap
+	}&maptype=${this.mapTypeMap}&format=${this.formatMap}&key=${
+		this.googleApiKey
+	}&scale=${this.scaleMap}&language=${this.language}${this.markersMap}${
+		this.pathsMap
+	}`;
 	this.$emit('get-url', mapUrl);
 	return mapUrl;
 }
 
+/* eslint-disable arrow-parens */
 function generateMarkers() {
-	const markers = this.markers.map((marker) => {
+	const markers = this.markers.map(marker => {
 		const color = `color:${marker.color}|`;
 		const size = `size:${marker.size}|`;
 		const label = `label:${marker.label}|`;
@@ -54,13 +64,14 @@ function generateMarkers() {
 	return markers.join('');
 }
 
+/* eslint-disable arrow-parens */
 function generatePaths() {
-	const paths = this.paths.map((path) => {
+	const paths = this.paths.map(path => {
 		const color = `color:${path.color}`;
 		const weight = `weight:${path.weight}`;
 		const geodesic = `geodesic:${path.geodesic}`;
 		const fillcolor = `fillcolor:${path.fillcolor}`;
-		const latLng = path.locations.map((location) => {
+		const latLng = path.locations.map(location => {
 			if (location.startLat && location.endLng) {
 				return `|${location.startLat},${location.endLng}`;
 			}
@@ -70,7 +81,7 @@ function generatePaths() {
 		const pathUrl = `&path=${color}|${fillcolor}|${geodesic}|${weight}${joinLatLng}`;
 		return pathUrl;
 	});
-	return paths[0];
+	return paths.length > 0 ? paths[0] : '';
 }
 
 function generateScaleMap() {

@@ -1,7 +1,11 @@
 <template>
 	<div id="app">
 		<h1>Vue Static Map</h1>
-		<static-map :google-api-key="apiKey" :language="language" v-on:get-url="getUrl" :paths="paths" :format="format" :markers="markers" :zoom="zoom" :center="center" :size="size" :type="type"></static-map>
+		<static-map :google-api-key="apiKey" alt="I am a custom alternative text"
+			title="I am a custom title" id="i-am-a-custom-stop-it"
+			:language="language" v-on:get-url="getUrl" :paths="paths"
+			:format="format" :markers="markers" :zoom="zoom" :center="center"
+			:size="size" :type="type"></static-map>
 		<div>
 			<pre>{{url}}</pre>
 		</div>
@@ -24,13 +28,26 @@ export default {
 			language: 'ja',
 			markers: [
 				{
-					label: 'W', color: 'blue', lat: 40.702147, lng: -74.015794, size: 'normal',
+					label: 'W',
+					color: 'blue',
+					lat: 40.702147,
+					lng: -74.015794,
+					size: 'normal',
 				},
 				{
-					label: 'Y', color: 'yellow', lat: 40.711614, lng: -74.012318, size: 'tiny',
+					label: 'Y',
+					color: 'yellow',
+					lat: 40.711614,
+					lng: -74.012318,
+					size: 'tiny',
 				},
 				{
-					label: 'G', color: 'green', lat: 40.718217, lng: -74.015794, size: 'small', icon: 'http://www.airsoftmap.net/images/pin_map.png',
+					label: 'G',
+					color: 'green',
+					lat: 40.718217,
+					lng: -74.015794,
+					size: 'small',
+					icon: 'http://www.airsoftmap.net/images/pin_map.png',
 				},
 			],
 			paths: [

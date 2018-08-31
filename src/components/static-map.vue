@@ -1,5 +1,5 @@
 <template>
-	<img v-bind:src="mapUrl" />
+	<img :src="mapUrl" />
 </template>
 
 <script>
@@ -15,11 +15,8 @@ function generateMapType() {
 	if (types.indexOf(currenType) > -1) {
 		return currenType;
 	}
-	throw Error(
-		`Type must be one of the following values ${types
-			.join(', ')
-			.toUpperCase()}`,
-	);
+	const upperTypes = types.join(', ').toUpperCase();
+	throw Error(`Type must be one of the following values ${upperTypes}`);
 }
 
 function generateMapUrl() {
@@ -58,7 +55,6 @@ function generateMarkers() {
 		if (marker.lat && marker.lng) {
 			markerUrl += latLng;
 		}
-		// const markerUrl = `&markers=${icon}|${size}|${color}|${label}|${latLng}`;
 		return markerUrl;
 	});
 	return markers.join('');
@@ -94,13 +90,14 @@ function generateScaleMap() {
 
 function generateSizeMap() {
 	if (this.size.length > 0) {
-		const size = this.size;
+		const { size } = this;
 		return `${size[0]}x${size[1]}`;
 	}
 	throw Error('Size must have 2 values: WIDTH AND HEIGHT');
 }
 
 export default {
+	name: 'static-map',
 	computed: {
 		formatMap: generateFormatMap,
 		mapTypeMap: generateMapType,
@@ -157,4 +154,3 @@ export default {
 	},
 };
 </script>
-

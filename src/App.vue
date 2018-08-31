@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import StaticMap from './components/StaticMap';
+import StaticMap from './components/static-map.vue';
 
 function getUrl(url) {
 	this.url = url;

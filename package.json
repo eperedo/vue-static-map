@@ -1,76 +1,42 @@
 {
 	"name": "vue-static-map",
-	"version": "2.0.1",
-	"description": "a simple component to generate static google map",
-	"keywords": ["vue", "google", "maps"],
-	"author": "Eduardo Peredo <jrperedo@gmail.com>",
-	"license": "MIT",
-	"homepage": "https://github.com/eperedo/vue-static-map#readme",
-	"main": "dist/StaticMap.js",
+	"version": "3.0.0",
+	"main": "dist/StaticMap.common.js",
 	"scripts": {
-		"component": "npm run component-cjs && npm run component-umd",
-		"component-cjs": "poi build src/components/StaticMap.vue",
-		"component-umd": "poi build --config poi-umd.js src/components/StaticMap.vue",
-		"dev": "node build/dev-server.js",
-		"start": "node build/dev-server.js",
-		"build": "node build/build.js",
-		"lint": "eslint --ext .js,.vue src"
+		"component": "vue-cli-service build --target lib --name StaticMap src/components/static-map.vue",
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint",
+		"test:unit": "vue-cli-service test:unit"
+	},
+	"dependencies": {
+		"register-service-worker": "^1.0.0",
+		"vue": "^2.5.17"
 	},
 	"devDependencies": {
-		"autoprefixer": "^6.7.2",
-		"babel-core": "^6.22.1",
-		"babel-eslint": "^7.1.1",
-		"babel-loader": "^6.2.10",
-		"babel-plugin-transform-runtime": "^6.22.0",
-		"babel-preset-env": "^1.3.2",
-		"babel-preset-stage-2": "^6.22.0",
-		"babel-register": "^6.22.0",
-		"chalk": "^1.1.3",
-		"connect-history-api-fallback": "^1.3.0",
-		"copy-webpack-plugin": "^4.0.1",
-		"css-loader": "^0.28.0",
-		"eslint": "^3.19.0",
-		"eslint-config-airbnb-base": "^11.1.3",
-		"eslint-friendly-formatter": "^2.0.7",
-		"eslint-import-resolver-webpack": "^0.8.1",
-		"eslint-loader": "^1.7.1",
-		"eslint-plugin-html": "^2.0.0",
-		"eslint-plugin-import": "^2.2.0",
-		"eventsource-polyfill": "^0.9.6",
-		"express": "^4.14.1",
-		"extract-text-webpack-plugin": "^2.0.0",
-		"file-loader": "^0.11.1",
-		"friendly-errors-webpack-plugin": "^1.1.3",
-		"html-webpack-plugin": "^2.28.0",
-		"http-proxy-middleware": "^0.17.3",
-		"opn": "^4.0.2",
-		"optimize-css-assets-webpack-plugin": "^1.3.0",
-		"ora": "^1.2.0",
-		"poi": "9.6.13",
-		"rimraf": "^2.6.0",
-		"semver": "^5.3.0",
-		"shelljs": "^0.7.6",
-		"url-loader": "^0.5.8",
-		"vue": "^2.3.3",
-		"vue-loader": "^12.1.0",
-		"vue-style-loader": "^3.0.1",
-		"vue-template-compiler": "^2.3.3",
-		"webpack": "^2.6.1",
-		"webpack-bundle-analyzer": "^2.2.1",
-		"webpack-dev-middleware": "^1.10.0",
-		"webpack-hot-middleware": "^2.18.0",
-		"webpack-merge": "^4.1.0"
+		"@vue/cli-plugin-babel": "^3.0.1",
+		"@vue/cli-plugin-eslint": "^3.0.1",
+		"@vue/cli-plugin-pwa": "^3.0.1",
+		"@vue/cli-plugin-unit-jest": "^3.0.1",
+		"@vue/cli-service": "^3.0.1",
+		"@vue/eslint-config-airbnb": "^3.0.1",
+		"@vue/test-utils": "^1.0.0-beta.20",
+		"babel-core": "7.0.0-bridge.0",
+		"babel-jest": "^23.0.1",
+		"lint-staged": "^7.2.2",
+		"vue-template-compiler": "^2.5.17"
 	},
-	"engines": {
-		"node": ">= 4.0.0",
-		"npm": ">= 3.0.0"
+	"gitHooks": {
+		"pre-commit": "lint-staged"
 	},
-	"browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/eperedo/vue-static-map.git"
-	},
-	"bugs": {
-		"url": "https://github.com/eperedo/vue-static-map/issues"
+	"lint-staged": {
+		"*.js": [
+			"vue-cli-service lint",
+			"git add"
+		],
+		"*.vue": [
+			"vue-cli-service lint",
+			"git add"
+		]
 	}
 }

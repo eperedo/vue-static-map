@@ -1,6 +1,6 @@
 # vue-static-map
 
-> a simple component to generate static google map
+> a simple component to generate an static google map
 
 ![static google map](https://user-images.githubusercontent.com/461124/28100714-6c896d1e-6689-11e7-8a38-327dfe4b6ff5.png)
 
@@ -8,7 +8,7 @@
 
 ## Demo
 
-* [JSBin example](http://jsbin.com/gizixekilu/edit?html,js,output)
+- [JSBin example](http://jsbin.com/gizixekilu/edit?html,js,output)
 
 ## Requirements
 
@@ -23,7 +23,7 @@
     Or include in your html using the script tag
 
     ```html
-    <script src="https://unpkg.com/vue-static-map/dist/static-map.umd.min.js"></script>
+    <script src="https://unpkg.com/vue-static-map/dist/StaticMap.umd.min.js"></script>
     ```
 
 2.  Add component in your app

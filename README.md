@@ -8,7 +8,8 @@
 
 ## Demo
 
-- [JSBin example](http://jsbin.com/gizixekilu/edit?html,js,output)
+- [SandBox](https://codesandbox.io/s/9o8yqq527p)
+- [JSBin example](https://jsbin.com/ganoxoyopo/1/edit?html,js,output)
 
 ## Requirements
 

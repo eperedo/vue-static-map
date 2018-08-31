@@ -2,3 +2,6 @@ src
 static
 config
 build
+public
+tests
+.github

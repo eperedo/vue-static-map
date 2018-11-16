@@ -26,7 +26,7 @@ function generateMapUrl() {
 		this.googleApiKey
 	}&scale=${this.scaleMap}&language=${this.language}${this.markersMap}${
 		this.pathsMap
-	}`;
+	}&${this.styleMap}`;
 	this.$emit('get-url', mapUrl);
 	return mapUrl;
 }
@@ -96,6 +96,34 @@ function generateSizeMap() {
 	throw Error('Size must have 2 values: WIDTH AND HEIGHT');
 }
 
+function generateCustomStyles() {
+	const result = [];
+	if (this.customStyle) {
+		let custom = [];
+		try {
+			custom = JSON.parse(this.customStyle);
+		} catch (e) {
+			custom = this.customStyle;
+		}
+		custom.forEach(v => {
+			let style = '';
+			if (v.stylers) {
+				if (v.stylers.length > 0) {
+					style += `${(Object.prototype.hasOwnProperty.call(v, 'featureType') ? `feature:${v.featureType}` : 'feature:all')}|`;
+					style += `${(Object.prototype.hasOwnProperty.call(v, 'elementType') ? `element:${v.elementType}` : 'element:all')}|`;
+					v.stylers.forEach(val => {
+						const propertyname = Object.keys(val)[0];
+						const propertyval = val[propertyname].toString().replace('#', '0x');
+						style += `${propertyname}:${propertyval}|`;
+					});
+				}
+			}
+			result.push(`style=${encodeURIComponent(style)}`);
+		});
+	}
+	return result.join('&');
+}
+
 export default {
 	name: 'static-map',
 	computed: {
@@ -106,6 +134,7 @@ export default {
 		pathsMap: generatePaths,
 		scaleMap: generateScaleMap,
 		sizeMap: generateSizeMap,
+		styleMap: generateCustomStyles,
 	},
 	props: {
 		center: {
@@ -146,6 +175,10 @@ export default {
 		size: {
 			type: Array,
 			default: () => [500, 400],
+		},
+		customStyle: {
+			type: [String, Array],
+			default: null,
 		},
 		zoom: {
 			type: Number,
